@@ -6,7 +6,7 @@ from .views import HomePageView, AboutPageView
 class HomePageTest(SimpleTestCase):
     def setUP(self):
         url = reverse("home")
-        self.client.get(url)
+        return self.client.get(url)
 
     def test_homepage_status_code(self):
         self.assertEqual(self.setUP().status_code, 200)
@@ -28,7 +28,7 @@ class HomePageTest(SimpleTestCase):
 class AboutPageTest(TestCase):
     def setUp(self):
         url = reverse("about")
-        self.client.get(url)
+        return self.client.get(url)
 
     def test_aboutpage_status_code(self):
         self.assertEqual(self.setUp().status_code, 200)
