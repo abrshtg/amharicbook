@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "pages",
 ]
 
-CLOUDINARY_URL = env.str('DJANGO_CLOUDINARY_URL')
+CLOUDINARY_URL = env.str('CLOUDINARY_URL')
 
 
 
