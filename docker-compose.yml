@@ -2,8 +2,8 @@ version: "3.9"
 services:
   web:
     build: .
-    # command: python /code/manage.py runserver 0.0.0.0:8000
-    command: gunicorn django_project.wsgi -b 0.0.0.0:8000
+    command: python /code/manage.py runserver 0.0.0.0:8000 --nostatic
+    # command: gunicorn django_project.wsgi -b 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
@@ -12,7 +12,7 @@ services:
       - db
     environment:
       - "DJANGO_SECRET_KEY=django-insecure-o^t*#%wr66rsa8e-+4ewv#_e35e(4*wz==()qe&9d%bidpnrt!"
-      - "DJANGO_DEBUG=True"
+      - "DJANGO_DEBUG=False"
       - "DJANGO_SECURE_SSL_REDIRECT=False"
       - "DJANGO_SECURE_HSTS_SECONDS=0"
       - "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False"

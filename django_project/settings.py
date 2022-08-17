@@ -29,9 +29,16 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
-ALLOWED_HOSTS = ["evening-plateau-20807.herokuapp.com/", "127.0.0.1", "localhost", ".herokuapp.com", "192.168.43.59"]
+ALLOWED_HOSTS = [
+    "evening-plateau-20807.herokuapp.com/",
+    "127.0.0.1",
+    "localhost",
+    ".herokuapp.com",
+    "192.168.43.59",
+]
 
 
+print("*" * 50, DEBUG, "*" * 50)
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +47,6 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "debug_toolbar",
@@ -174,20 +180,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-
-# Lists of directories where our static directories are located.
-# In this case we only have one project level directory.
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# The directory which is created for production level when we say collecstatic
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
