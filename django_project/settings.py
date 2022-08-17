@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     # "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'cloudinary_storage',
-    'cloudinary',
+ 
     "django.contrib.sites",
     "debug_toolbar",
     "crispy_forms",
