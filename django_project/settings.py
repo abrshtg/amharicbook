@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     # "whitenoise.runserver_nostatic",
-    "django.contrib.staticfiles",
+    'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     "django.contrib.sites",
     "debug_toolbar",
     "crispy_forms",
@@ -54,6 +56,13 @@ INSTALLED_APPS = [
     "books",
     "pages",
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dnqq3tdqx',
+    'API_KEY': '973452728836774',
+    'API_SECRET': 'GnWFxk9AKA9ENwHUk40l0B0Ywqo'
+}
+CLOUDINARY_URL=env.url('DJANGO_CLOUDINARY_URL')
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -185,9 +194,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
-
+MEDIA_ROOT = BASE_DIR / "media"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
