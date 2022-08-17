@@ -1,12 +1,12 @@
-setup:
+setup:        #1. specify which add-ons are needed.
   addons:
     - plan: heroku-postgresql
-build:
+build:        #2. specify how the Dockerfile should be built.
   docker:
     web: Dockerfile
-release:
+release:      #3. used to run tasks before each new release is deployed.
   image: web
   command:
     - python manage.py collectstatic --noinput
-run:
+run:         #4. specify which processes actually run the application.
   web: gunicorn django_project.wsgi
