@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "pages",
 ]
 
-CLOUDINARY_STORAGE = env.url('CLOUDINARY_URL')
+CLOUDINARY_STORAGE = env.str('CLOUDINARY_URL')
 
 
 
