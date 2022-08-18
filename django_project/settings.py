@@ -30,10 +30,16 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
 # DEBUG = False
 
-ALLOWED_HOSTS = ["evening-plateau-20807.herokuapp.com/", "127.0.0.1", "localhost", ".herokuapp.com", "192.168.43.59"]
+ALLOWED_HOSTS = [
+    "evening-plateau-20807.herokuapp.com/",
+    "127.0.0.1",
+    "localhost",
+    ".herokuapp.com",
+    "192.168.43.59",
+]
 
 
-print('*'*50, DEBUG, '*'*50)
+print("*" * 50, DEBUG, "*" * 50)
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,9 +49,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     # "whitenoise.runserver_nostatic",
-    'django.contrib.staticfiles',
-    'cloudinary_storage',
-    'cloudinary',
+    "django.contrib.staticfiles",
+    "cloudinary_storage",
+    "cloudinary",
     "django.contrib.sites",
     "debug_toolbar",
     "crispy_forms",
@@ -57,8 +63,13 @@ INSTALLED_APPS = [
     "pages",
 ]
 
-CLOUDINARY_STORAGE = env.str('CLOUDINARY_URL')
+# CLOUDINARY_STORAGE = env.str('CLOUDINARY_URL')
+# CLOUDINARY_URL=env.str('DJANGO_CLOUDINARY_URL')
 
+CLOUDINARY_CLOUD_NAME = env.str("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_SECRET = env.str("CLOUDINARY_API_SECRET")
+CLOUDINARY_API_KEY = env.str("CLOUDINARY_API_KEY")
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -192,7 +203,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
